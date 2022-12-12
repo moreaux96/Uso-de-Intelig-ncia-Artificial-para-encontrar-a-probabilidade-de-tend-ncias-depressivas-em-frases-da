@@ -7,7 +7,7 @@ import nltk
 
 dataset_columns = ["target", "ids", "date", "flag", "user", "text"]
 dataset_encode = "ISO-8859-1"
-data = pd.read_csv("dataset_random", encoding = dataset_encode, names = dataset_columns)
+data = pd.read_csv("dataset_random.xlsx", encoding = dataset_encode, names = dataset_columns)
 
 data.drop(['ids','date','flag','user'],axis = 1,inplace = True)
 
