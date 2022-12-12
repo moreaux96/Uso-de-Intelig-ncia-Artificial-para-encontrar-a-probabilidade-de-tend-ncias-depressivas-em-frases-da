@@ -20,7 +20,7 @@ from sklearn.metrics import classification_report
 #import dataset
 dataset_columns = ["target", "ids", "date", "flag", "user", "text"]
 dataset_encode = "ISO-8859-1"
-data = pd.read_csv("dataset_random.csv", encoding = dataset_encode, names = dataset_columns)
+data = pd.read_csv("depressivos.xlsx", encoding = dataset_encode, names = dataset_columns)
 
 data.drop(['ids','date','flag','user'],axis = 1,inplace = True)
 
