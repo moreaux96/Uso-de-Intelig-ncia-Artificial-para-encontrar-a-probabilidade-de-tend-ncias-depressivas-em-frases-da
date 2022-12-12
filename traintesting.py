@@ -5,6 +5,7 @@ import pandas as pd
 import string
 import nltk
 import re
+import seaborn as sns
 
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -45,7 +46,7 @@ data['clean_text_tokenize']=data['clean_text'].apply(lambda x: tokenize(x.lower(
 
 #stopwords
 nltk.download('stopwords')
-stopword = nltk.corpus.stopwords.words('english')
+stopword = nltk.corpus.stopwords.words('portuguese')
 def remove_stopwords(text):
     text=[word for word in text if word not in stopword]
     return text
@@ -60,6 +61,7 @@ X = new_data['text']
 y = new_data['label']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.05, random_state=42)
 
+sns.heatmap(cf_matrix/np.sum(cf_matrix), annot=True, fmt='.2%', cmap='Blues')
 
 model = make_pipeline(TfidfVectorizer(), MultinomialNB())
 model.fit(X_train,y_train)
